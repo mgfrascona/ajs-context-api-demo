@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { ThemeProvider } from './contexts/ThemeProvider'
+import { NotificationProvider } from './contexts/NotificationContext'
 import Layout from './components/Layout'
 import './App.css'
 
 const App = () => {
-	const [user, setUser] = useState({ name: 'Ryan' })
-
-	return <Layout user={user} setUser={setUser} />
+	return (
+		<ThemeProvider>
+			<NotificationProvider>
+				<Layout />
+			</NotificationProvider>
+		</ThemeProvider>
+	)
 }
 
 export default App

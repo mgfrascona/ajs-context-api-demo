@@ -1,10 +1,10 @@
 import UserMenu from './UserMenu'
 
-const Header = ({ user, setUser }) => {
+const Header = () => {
   return (
     <header className="header">
       <h1>Demo Website</h1>
-      <UserMenu user={user} setUser={setUser} />
+      <UserMenu />
     </header>
   )
 }

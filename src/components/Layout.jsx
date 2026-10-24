@@ -2,16 +2,19 @@ import Header from './Header'
 import Sidebar from './Sidebar'
 import StatCard from './StatCard'
 import ActivityItem from './ActivityItem'
+import NotificationList from './NotificationList'
+import NewNotification from './NewNotification'
 
-const Layout = ({ user, setUser }) => {
+const Layout = () => {
   return (
     <div className="layout">
-      <Header user={user} setUser={setUser} />
+      <Header />
       <div className="content">
-        <Sidebar user={user} setUser={setUser} />
+        <Sidebar />
         <main className="main">
           <h2>Welcome to the Dashboard</h2>
           <p className="subtitle">Here's what's happening today</p>
+          <NotificationList />
 
           <div className="stats">
             <StatCard number={24} label="New Messages" />
@@ -27,6 +30,8 @@ const Layout = ({ user, setUser }) => {
               <ActivityItem title="Meeting Scheduled" description="Team standup tomorrow at 10:00 AM" />
             </ul>
           </div>
+
+          <NewNotification />
         </main>
       </div>
     </div>

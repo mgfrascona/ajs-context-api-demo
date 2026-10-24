@@ -1,9 +1,18 @@
 import UserProfile from './UserProfile'
 
-const Sidebar = ({ user, setUser }) => {
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeProvider.jsx'
+
+const Sidebar = () => {
+  const { theme, setTheme } = useContext(ThemeContext)
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
+
   return (
     <aside className="sidebar">
-      <UserProfile user={user} setUser={setUser} />
+      <UserProfile />
       <nav>
         <ul>
           <li><a href="#">Dashboard</a></li>
@@ -11,6 +20,10 @@ const Sidebar = ({ user, setUser }) => {
           <li><a href="#">Logout</a></li>
         </ul>
       </nav>
+      <div className="theme-switcher">
+        <span>Theme:</span>
+        <button onClick={toggleTheme}>Change Theme</button>
+      </div>
     </aside>
   )
 }
